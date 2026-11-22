@@ -6,3 +6,7 @@
 *.sqlite3
 reportes/
 .env
+Microsoft/
+exportaciones/
+reportes_pruebas/
+MoonDetex_respaldo_clase19
