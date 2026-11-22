@@ -1,0 +1,166 @@
+import re
+
+# MOONDETEX V0.7
+# Motor de análisis HTTP sin conexión
+
+REGLAS = [
+    ("csp", "Política CSP"),
+    ("marcos", "Protección de marcos"),
+    ("nosniff", "Control de tipos MIME"),
+]
+
+
+def extraer_cabeceras(texto):
+    lineas = texto.replace("\r\n", "\n").split("\n")
+
+    patron = r"^HTTP/(?:1\.[01]|[23])\s+\d{3}(?:\s|$)"
+
+    if not lineas or not re.match(
+        patron,
+        lineas[0].strip(),
+        re.IGNORECASE
+    ):
+        raise ValueError(
+            "El texto debe comenzar con "
+            "HTTP/1.1 200 OK o similar."
+        )
+
+    cabeceras = {}
+
+    for linea in lineas[1:]:
+        if not linea.strip():
+            break
+
+        if ":" not in linea:
+            raise ValueError(
+                "Cabecera incorrecta: " + linea[:70]
+            )
+
+        nombre, valor = linea.split(":", 1)
+        nombre = nombre.strip().lower()
+
+        if not re.fullmatch(
+            r"[a-z0-9!#$%&'*+.^_`|~-]+",
+            nombre
+        ):
+            raise ValueError(
+                "Nombre de cabecera no válido."
+            )
+
+        cabeceras[nombre] = valor.strip()
+
+    if "content-type" not in cabeceras:
+        raise ValueError(
+            "Falta la cabecera Content-Type."
+        )
+
+    return cabeceras
+
+
+def evaluar(texto):
+    cab = extraer_cabeceras(texto)
+
+    tipo = cab["content-type"].split(";", 1)[0].strip().lower()
+
+    if tipo != "text/html":
+        return {
+            clave: None
+            for clave, _ in REGLAS
+        }
+
+    csp = cab.get(
+        "content-security-policy", ""
+    )
+
+    directivas = [
+        x.strip().lower()
+        for x in csp.split(";")
+    ]
+
+    # Una directiva sin valor no cuenta
+    frame_ancestors = any(
+        x.startswith("frame-ancestors ")
+        and bool(
+            x[len("frame-ancestors "):].strip()
+        )
+        for x in directivas
+    )
+
+    xframe = cab.get(
+        "x-frame-options", ""
+    ).upper()
+
+    marcos = (
+        frame_ancestors
+        or xframe in ("DENY", "SAMEORIGIN")
+    )
+
+    nosniff = cab.get(
+        "x-content-type-options", ""
+    ).lower() == "nosniff"
+
+    return {
+        "csp": bool(csp.strip()),
+        "marcos": bool(marcos),
+        "nosniff": nosniff
+    }
+
+
+def analizar(texto):
+    estados = evaluar(texto)
+
+    detalles = {
+        "csp":
+            "No se observó Content-Security-Policy.",
+
+        "marcos":
+            "No se observó una restricción "
+            "de marcos reconocida en las cabeceras.",
+
+        "nosniff":
+            "No se observó "
+            "X-Content-Type-Options: nosniff."
+    }
+
+    return [
+        (
+            clave,
+            titulo + " por revisar",
+            detalles[clave]
+        )
+        for clave, titulo in REGLAS
+        if estados[clave] is False
+    ]
+
+
+def comparar(antes, despues):
+    estado_antes = evaluar(antes)
+    estado_despues = evaluar(despues)
+
+    resultados = []
+
+    for clave, titulo in REGLAS:
+        a = estado_antes[clave]
+        d = estado_despues[clave]
+
+        if a is None or d is None:
+            estado = "No comparable"
+
+        elif not a and d:
+            estado = "Mejora observada"
+
+        elif a and not d:
+            estado = "Posible regresión"
+
+        elif not a and not d:
+            estado = "Pendiente de revisión"
+
+        else:
+            estado = "Presente en ambas muestras"
+
+        resultados.append({
+            "control": titulo,
+            "estado": estado
+        })
+
+    return resultados

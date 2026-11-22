@@ -1,0 +1,135 @@
+================================
+MOONDETEX - INFORME DE PRUEBAS
+================================
+
+Fecha: 2026-11-01 23:28:47
+Estado: APROBADO
+Codigo de salida: 0
+Validacion: VALIDACION APROBADA: 93 pruebas correctas.
+
+RESULTADOS GENERALES
+================================
+
+================================
+      MOONDETEX V0.21
+   CENTRO DE PRUEBAS
+================================
+
+Pruebas encontradas: 93
+
+Iniciando comprobaciones...
+
+
+================================
+     RESULTADOS MOONDETEX
+================================
+Ejecutadas: 93
+Aprobadas: 93
+Fallos: 0
+Errores: 0
+Omitidas: 0
+
+RESULTADO: PRUEBAS APROBADAS
+
+
+DETALLE DE PRUEBAS Y ERRORES
+================================
+test_comparacion (pruebas_v07.PruebasMoonDetex.test_comparacion) ... ok
+test_con_controles (pruebas_v07.PruebasMoonDetex.test_con_controles) ... ok
+test_sin_controles (pruebas_v07.PruebasMoonDetex.test_sin_controles) ... ok
+test_texto_incorrecto (pruebas_v07.PruebasMoonDetex.test_texto_incorrecto) ... ok
+test_csp_ausente (pruebas_v08.PruebasCSP.test_csp_ausente) ... ok
+test_csp_con_directiva (pruebas_v08.PruebasCSP.test_csp_con_directiva) ... ok
+test_csp_sin_directivas (pruebas_v08.PruebasCSP.test_csp_sin_directivas) ... ok
+test_directiva_desconocida (pruebas_v09.PruebasMoonDetexV09.test_directiva_desconocida) ... ok
+test_directiva_reconocida (pruebas_v09.PruebasMoonDetexV09.test_directiva_reconocida) ... ok
+test_csp_ausente (pruebas_v10.PruebasMoonDetexV10.test_csp_ausente) ... ok
+test_default_src_comodin (pruebas_v10.PruebasMoonDetexV10.test_default_src_comodin) ... ok
+test_respuesta_json (pruebas_v10.PruebasMoonDetexV10.test_respuesta_json) ... ok
+test_script_src_comodin (pruebas_v10.PruebasMoonDetexV10.test_script_src_comodin) ... ok
+test_sin_comodin (pruebas_v10.PruebasMoonDetexV10.test_sin_comodin) ... ok
+test_fallo_no_deja_registros_incompletos (pruebas_guardado_v19.PruebaTransaccion.test_fallo_no_deja_registros_incompletos) ... ok
+test_datos_obligatorios (pruebas_proyectos_v20.PruebasProyectos.test_datos_obligatorios) ... ok
+test_eliminar_proyecto (pruebas_proyectos_v20.PruebasProyectos.test_eliminar_proyecto) ... ok
+test_guardar_y_consultar (pruebas_proyectos_v20.PruebasProyectos.test_guardar_y_consultar) ... ok
+test_consultar_hallazgos (pruebas_hallazgos_v21.PruebasHallazgos.test_consultar_hallazgos) ... ok
+test_estado_invalido (pruebas_hallazgos_v21.PruebasHallazgos.test_estado_invalido) ... ok
+test_guardar_estado (pruebas_hallazgos_v21.PruebasHallazgos.test_guardar_estado) ... ok
+test_hallazgo_inexistente (pruebas_hallazgos_v21.PruebasHallazgos.test_hallazgo_inexistente) ... ok
+test_archivo_inexistente (pruebas_diagnostico_v25.PruebasDiagnostico.test_archivo_inexistente) ... ok
+test_codigo_correcto (pruebas_diagnostico_v25.PruebasDiagnostico.test_codigo_correcto) ... ok
+test_error_sintaxis (pruebas_diagnostico_v25.PruebasDiagnostico.test_error_sintaxis) ... ok
+test_base_inexistente (pruebas_respaldos_v26.PruebasRespaldos.test_base_inexistente) ... ok
+test_conservar_respaldos (pruebas_respaldos_v26.PruebasRespaldos.test_conservar_respaldos) ... ok
+test_respaldo_con_datos (pruebas_respaldos_v26.PruebasRespaldos.test_respaldo_con_datos) ... ok
+test_recuperacion_correcta (pruebas_recuperacion_v27.PruebasRecuperacion.test_recuperacion_correcta) ... ok
+test_respaldo_danado (pruebas_recuperacion_v27.PruebasRecuperacion.test_respaldo_danado) ... ok
+test_sin_respaldos (pruebas_recuperacion_v27.PruebasRecuperacion.test_sin_respaldos) ... ok
+test_archivo_danado (pruebas_restauracion_v27.PruebasRestauracion.test_archivo_danado) ... ok
+test_relacion_incorrecta (pruebas_restauracion_v27.PruebasRestauracion.test_relacion_incorrecta) ... ok
+test_restauracion_correcta (pruebas_restauracion_v27.PruebasRestauracion.test_restauracion_correcta) ... ok
+test_sin_respaldos (pruebas_restauracion_v27.PruebasRestauracion.test_sin_respaldos) ... ok
+test_pruebas_incompletas (pruebas_validador_v29.PruebasValidador.test_pruebas_incompletas) ... ok
+test_pruebas_omitidas (pruebas_validador_v29.PruebasValidador.test_pruebas_omitidas) ... ok
+test_resultado_con_errores (pruebas_validador_v29.PruebasValidador.test_resultado_con_errores) ... ok
+test_resultado_correcto (pruebas_validador_v29.PruebasValidador.test_resultado_correcto) ... ok
+test_estado_invalido (pruebas_filtros_v30.PruebasFiltros.test_estado_invalido) ... ok
+test_filtrar_descartados (pruebas_filtros_v30.PruebasFiltros.test_filtrar_descartados) ... ok
+test_filtrar_pendientes (pruebas_filtros_v30.PruebasFiltros.test_filtrar_pendientes) ... ok
+test_filtrar_revisados (pruebas_filtros_v30.PruebasFiltros.test_filtrar_revisados) ... ok
+test_mostrar_todos (pruebas_filtros_v30.PruebasFiltros.test_mostrar_todos) ... ok
+test_no_modificar_datos (pruebas_filtros_v30.PruebasFiltros.test_no_modificar_datos) ... ok
+test_caracteres_de_control (pruebas_alcance_v32.PruebasAlcance.test_caracteres_de_control) ... ok
+test_credenciales_en_url (pruebas_alcance_v32.PruebasAlcance.test_credenciales_en_url) ... ok
+test_dominio_no_autorizado (pruebas_alcance_v32.PruebasAlcance.test_dominio_no_autorizado) ... ok
+test_dominio_parecido (pruebas_alcance_v32.PruebasAlcance.test_dominio_parecido) ... ok
+test_dominio_permitido (pruebas_alcance_v32.PruebasAlcance.test_dominio_permitido) ... ok
+test_ipv4_directa (pruebas_alcance_v32.PruebasAlcance.test_ipv4_directa) ... ok
+test_ipv6_directa (pruebas_alcance_v32.PruebasAlcance.test_ipv6_directa) ... ok
+test_protocolo_invalido (pruebas_alcance_v32.PruebasAlcance.test_protocolo_invalido) ... ok
+test_puerto_invalido (pruebas_alcance_v32.PruebasAlcance.test_puerto_invalido) ... ok
+test_subdominio_no_autorizado (pruebas_alcance_v32.PruebasAlcance.test_subdominio_no_autorizado) ... ok
+test_url_vacia (pruebas_alcance_v32.PruebasAlcance.test_url_vacia) ... ok
+test_caracteres_ocultos (pruebas_redirecciones_v32.PruebasRedirecciones.test_caracteres_ocultos) ... ok
+test_credenciales (pruebas_redirecciones_v32.PruebasRedirecciones.test_credenciales) ... ok
+test_destino_vacio (pruebas_redirecciones_v32.PruebasRedirecciones.test_destino_vacio) ... ok
+test_dominio_externo (pruebas_redirecciones_v32.PruebasRedirecciones.test_dominio_externo) ... ok
+test_protocolo_invalido (pruebas_redirecciones_v32.PruebasRedirecciones.test_protocolo_invalido) ... ok
+test_puerto_invalido (pruebas_redirecciones_v32.PruebasRedirecciones.test_puerto_invalido) ... ok
+test_ruta_relativa (pruebas_redirecciones_v32.PruebasRedirecciones.test_ruta_relativa) ... ok
+test_subdominio_no_autorizado (pruebas_redirecciones_v32.PruebasRedirecciones.test_subdominio_no_autorizado) ... ok
+test_url_absoluta (pruebas_redirecciones_v32.PruebasRedirecciones.test_url_absoluta) ... ok
+test_dns_mixto (pruebas_dns_v33.PruebasDNS.test_dns_mixto) ... ok
+test_ip_invalida (pruebas_dns_v33.PruebasDNS.test_ip_invalida) ... ok
+test_ip_reservada (pruebas_dns_v33.PruebasDNS.test_ip_reservada) ... ok
+test_ipv4_local (pruebas_dns_v33.PruebasDNS.test_ipv4_local) ... ok
+test_ipv4_privada (pruebas_dns_v33.PruebasDNS.test_ipv4_privada) ... ok
+test_ipv4_publica (pruebas_dns_v33.PruebasDNS.test_ipv4_publica) ... ok
+test_ipv6_local (pruebas_dns_v33.PruebasDNS.test_ipv6_local) ... ok
+test_ipv6_publica (pruebas_dns_v33.PruebasDNS.test_ipv6_publica) ... ok
+test_lista_vacia (pruebas_dns_v33.PruebasDNS.test_lista_vacia) ... ok
+test_tipo_incorrecto (pruebas_dns_v33.PruebasDNS.test_tipo_incorrecto) ... ok
+test_cantidad_insuficiente (pruebas_verificar_informes_v33.PruebasVerificarInformes.test_cantidad_insuficiente) ... ok
+test_informe_con_fallos (pruebas_verificar_informes_v33.PruebasVerificarInformes.test_informe_con_fallos) ... ok
+test_informe_correcto (pruebas_verificar_informes_v33.PruebasVerificarInformes.test_informe_correcto) ... ok
+test_informe_desactualizado (pruebas_verificar_informes_v33.PruebasVerificarInformes.test_informe_desactualizado) ... ok
+test_sin_informes (pruebas_verificar_informes_v33.PruebasVerificarInformes.test_sin_informes) ... ok
+test_dns_mixto (pruebas_resolver_dns_v34.PruebasResolverDNS.test_dns_mixto) ... ok
+test_dominio_no_autorizado (pruebas_resolver_dns_v34.PruebasResolverDNS.test_dominio_no_autorizado) ... ok
+test_error_resolucion_dns (pruebas_resolver_dns_v34.PruebasResolverDNS.test_error_resolucion_dns) ... ok
+test_ip_privada (pruebas_resolver_dns_v34.PruebasResolverDNS.test_ip_privada) ... ok
+test_ipv4_global (pruebas_resolver_dns_v34.PruebasResolverDNS.test_ipv4_global) ... ok
+test_ipv6_enlace_local (pruebas_resolver_dns_v34.PruebasResolverDNS.test_ipv6_enlace_local) ... ok
+test_ipv6_global (pruebas_resolver_dns_v34.PruebasResolverDNS.test_ipv6_global) ... ok
+test_lista_con_dato_incorrecto (pruebas_resolver_dns_v34.PruebasResolverDNS.test_lista_con_dato_incorrecto) ... ok
+test_protocolo_invalido (pruebas_resolver_dns_v34.PruebasResolverDNS.test_protocolo_invalido) ... ok
+test_respuesta_dns_nula (pruebas_resolver_dns_v34.PruebasResolverDNS.test_respuesta_dns_nula) ... ok
+test_respuesta_dns_texto (pruebas_resolver_dns_v34.PruebasResolverDNS.test_respuesta_dns_texto) ... ok
+test_respuesta_invalida (pruebas_resolver_dns_v34.PruebasResolverDNS.test_respuesta_invalida) ... ok
+test_sin_respuestas (pruebas_resolver_dns_v34.PruebasResolverDNS.test_sin_respuestas) ... ok
+
+----------------------------------------------------------------------
+Ran 93 tests in 0.216s
+
+OK
+
