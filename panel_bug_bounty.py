@@ -1,4 +1,6 @@
 import os
+import subprocess
+import sys
 import sqlite3
 import threading
 from contextlib import closing
@@ -498,10 +500,16 @@ def renderizar_panel_bug_bounty(contenedor):
                 "Informe Generado",
                 f"Reporte guardado en:\n{ruta_md}\n\n¿Deseas abrir la carpeta de reportes?",
             ):
-                os.startfile(ruta_md.parent)
+                carpeta = str(ruta_md.parent)
+                if sys.platform == "win32":
+                    os.startfile(carpeta)
+                elif sys.platform == "darwin":
+                    subprocess.Popen(["open", carpeta])
+                else:
+                    subprocess.Popen(["xdg-open", carpeta])
         except Exception as exc:
             messagebox.showerror("Error al exportar", str(exc))
-
+ 
     btn_md = ctk.CTkButton(
         fila_btns_2,
         text="Exportar Informe .md",
